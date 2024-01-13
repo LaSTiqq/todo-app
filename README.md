@@ -13,7 +13,7 @@
 - Add fancy UI features
 - Implement [TypeScript](https://www.typescriptlang.org/)
 
-<sub>See the upcoming commit messages to see what are done</sub>
+<sub>See the upcoming commit messages to see what exactly are done</sub>
 
 ## Prerequisites
 
