@@ -5,11 +5,11 @@
 ## What are done currently (mainly)
 
 - Implemented basic logic and UI via [Bootstrap](https://getbootstrap.com/) to create todos and store them in Redux store
+- Implemented deletion of todos
 
 ## What are expected further (mainly)
 
 - Add editing of todos
-- Add deletion of todos
 - Add fancy UI features
 - Implement [TypeScript](https://www.typescriptlang.org/)
 

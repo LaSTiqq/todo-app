@@ -1,11 +1,13 @@
 import { createSlice } from "@reduxjs/toolkit";
+import { v4 as uuidv4 } from "uuid";
 
 export const tasksSlice = createSlice({
   name: "tasks",
   initialState: [],
   reducers: {
     addTask: (state, action) => {
-      state.push(action.payload);
+      const newTask = { ...action.payload, id: uuidv4() };
+      state.push(newTask);
     },
     editTask: (state, action) => {
       const { id, updatedTask } = action.payload;
