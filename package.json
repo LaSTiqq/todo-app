@@ -22,9 +22,7 @@
     "react-dom": "^18.2.0",
     "react-redux": "^9.1.0",
     "redux": "^5.0.1",
+    "uuid": "^9.0.1",
     "vite": "^5.0.8"
-  },
-  "dependencies": {
-    "uuid": "^9.0.1"
   }
 }

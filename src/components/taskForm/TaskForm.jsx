@@ -8,7 +8,7 @@ const TaskForm = () => {
 
   const [title, setTitle] = useState("");
   const [description, setDescription] = useState("");
-  const [priority, setPriority] = useState("");
+  const [priority, setPriority] = useState("High");
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -37,6 +37,13 @@ const TaskForm = () => {
     }
   };
 
+  const resetForm = () => {
+    setTitle("");
+    setDescription("");
+    setPriority("High");
+    // Clicking outside the modal form is evaluated as miss-click - input fields doesn't reset
+  };
+
   return (
     <div className="modal fade" id="taskFormModal" tabIndex="-1">
       <div className="modal-dialog">
@@ -47,53 +54,51 @@ const TaskForm = () => {
           <div className="modal-body pb-0">
             <form onSubmit={handleSubmit}>
               <div className="mb-3">
-                <label className="form-label d-block">
-                  Title
-                  <input
-                    type="text"
-                    className="form-control"
-                    value={title}
-                    name="Title"
-                    onChange={(e) => setTitle(e.target.value)}
-                    required
-                  />
-                </label>
+                <input
+                  placeholder="Title"
+                  type="text"
+                  className="form-control"
+                  value={title}
+                  name="Title"
+                  onChange={(e) => setTitle(e.target.value)}
+                  required
+                />
               </div>
               <div className="mb-3">
-                <label className="form-label d-block">
-                  Description
-                  <textarea
-                    className="form-control"
-                    value={description}
-                    name="Description"
-                    onChange={(e) => setDescription(e.target.value)}
-                    required
-                  ></textarea>
-                </label>
+                <textarea
+                  placeholder="Description"
+                  className="form-control"
+                  value={description}
+                  name="Description"
+                  rows={5}
+                  onChange={(e) => setDescription(e.target.value)}
+                  required
+                ></textarea>
               </div>
               <div className="mb-3">
-                <label className="form-label d-block">
-                  Priority
-                  <select
-                    className="form-select"
-                    value={priority}
-                    name="Priority"
-                    onChange={(e) => setPriority(e.target.value)}
-                    required
-                  >
-                    {priorities.map((priorityOption) => (
-                      <option key={priorityOption} value={priorityOption}>
-                        {priorityOption}
-                      </option>
-                    ))}
-                  </select>
-                </label>
+                <select
+                  title="Priority"
+                  className="form-select"
+                  value={priority}
+                  name="Priority"
+                  onChange={(e) => setPriority(e.target.value)}
+                  required
+                >
+                  {priorities.map((priorityOption) => (
+                    <option key={priorityOption} value={priorityOption}>
+                      {priorityOption}
+                    </option>
+                  ))}
+                </select>
               </div>
               <div className="modal-footer d-flex justify-content-between">
                 <button
                   type="button"
                   className="btn btn-danger"
                   data-bs-dismiss="modal"
+                  onClick={() => {
+                    resetForm();
+                  }}
                 >
                   Close
                 </button>

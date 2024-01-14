@@ -11,7 +11,7 @@
 
 - Add editing of todos
 - Add fancy UI features
-- Implement [TypeScript](https://www.typescriptlang.org/)
+- Recreate webapp in order to use [TypeScript](https://www.typescriptlang.org/)
 
 <sub>See the upcoming commit messages to see what exactly are done</sub>
 
