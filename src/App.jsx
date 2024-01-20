@@ -5,10 +5,14 @@ import TaskList from "./components/taskList/TaskList";
 
 const App = () => {
   const tasks = useSelector((state) => state.tasks);
-  const [showTaskForm, setShowTaskForm] = useState(true);
+  const [toggleModal, setToggleModal] = useState(true);
 
-  const handleShowTaskForm = () => {
-    setShowTaskForm(true);
+  const openModal = () => {
+    setToggleModal(true);
+  };
+
+  const closeModal = () => {
+    setToggleModal(false);
   };
 
   return (
@@ -25,12 +29,12 @@ const App = () => {
         type="button"
         className="btn btn-info d-block mx-auto"
         data-bs-toggle="modal"
-        data-bs-target="#taskFormModal"
-        onClick={handleShowTaskForm}
+        data-bs-target="#createModal"
+        onClick={openModal}
       >
         Add task
       </button>
-      {showTaskForm && <TaskForm onClose={() => setShowTaskForm(false)} />}
+      {toggleModal && <TaskForm onClose={closeModal} />}
     </div>
   );
 };

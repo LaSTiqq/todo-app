@@ -9,12 +9,6 @@ export const tasksSlice = createSlice({
       const newTask = { ...action.payload, id: uuidv4() };
       state.push(newTask);
     },
-    editTask: (state, action) => {
-      const { id, updatedTask } = action.payload;
-      return state.map((task) =>
-        task.id === id ? { ...task, ...updatedTask } : task
-      );
-    },
     deleteTask: (state, action) => {
       const taskId = action.payload;
       return state.filter((task) => task.id !== taskId);
@@ -22,6 +16,6 @@ export const tasksSlice = createSlice({
   },
 });
 
-export const { addTask, editTask, deleteTask } = tasksSlice.actions;
+export const { addTask, deleteTask } = tasksSlice.actions;
 
 export default tasksSlice.reducer;

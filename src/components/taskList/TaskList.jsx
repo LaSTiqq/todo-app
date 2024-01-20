@@ -35,14 +35,16 @@ const TaskList = ({ tasks }) => {
                 >
                   {task.priority}
                 </span>
-                <button
-                  title="Remove todo"
-                  type="button"
-                  className="btn text-danger p-0"
-                  onClick={() => handleDelete(task.id)}
-                >
-                  <span className="material-icons">delete_outline</span>
-                </button>
+                <span className="d-block">
+                  <button
+                    title="Remove todo"
+                    type="button"
+                    className="btn text-danger p-0"
+                    onClick={() => handleDelete(task.id)}
+                  >
+                    <span className="material-icons">delete_outline</span>
+                  </button>
+                </span>
               </li>
             ))}
           </ul>

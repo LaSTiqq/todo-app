@@ -10,16 +10,16 @@ const TaskForm = () => {
   const [description, setDescription] = useState("");
   const [priority, setPriority] = useState("High");
 
-  const handleSubmit = (e) => {
-    e.preventDefault();
+  const handleSubmit = (event) => {
+    event.preventDefault();
     dispatch(addTask({ title, description, priority }));
     setTitle("");
     setDescription("");
-    setPriority("");
+    setPriority("High");
 
     // Close the modal after submitting the form
     const backdropElement = document.querySelector(".modal-backdrop");
-    const modalElement = document.getElementById("taskFormModal");
+    const modalElement = document.getElementById("createModal");
 
     const toggleDisplay = (element, show) => {
       element.style.display = show ? "block" : "none";
@@ -45,7 +45,7 @@ const TaskForm = () => {
   };
 
   return (
-    <div className="modal fade" id="taskFormModal" tabIndex="-1">
+    <div className="modal fade" id="createModal" tabIndex="-1">
       <div className="modal-dialog">
         <div className="modal-content">
           <div className="modal-header">
@@ -106,9 +106,9 @@ const TaskForm = () => {
                   type="submit"
                   className="btn btn-success"
                   data-bs-toggle="modal"
-                  data-bs-target="#taskFormModal"
+                  data-bs-target="#createModal"
                 >
-                  Save Task
+                  Add Task
                 </button>
               </div>
             </form>
